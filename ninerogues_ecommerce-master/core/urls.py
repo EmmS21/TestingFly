@@ -3,8 +3,10 @@ from django.views.generic import TemplateView
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import HelloWorldView
 
 urlpatterns = [
+    path('hello/', HelloWorldView.as_view(), name='hello_world'),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
     path('auth/', include('djoser.social.urls')),

@@ -10,7 +10,9 @@ class ListCategoriesView(APIView):
     permission_classes = (permissions.AllowAny, )
 
     def get(self, request, format=None):
+        print("Inside get method of ListCategoriesView")  
         if Category.objects.all().exists():
+            print("Retrieved categories successfully:", categories)  
             categories = Category.objects.all()
 
             result = []

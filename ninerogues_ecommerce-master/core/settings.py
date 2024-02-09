@@ -9,18 +9,21 @@ ENVIRONMENT = env
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# SECRET_KEY = "4zDZxsfFhxNlABPf4GbxNIdhwiTBdbbCYkRgZ1eUVXEpJztLF9"
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = False
+DEBUG = True
 
-DOMAIN = os.environ.get('DOMAIN')
+DOMAIN = 'localhost'
+# DOMAIN = os.environ.get('DOMAIN')
 
 ALLOWED_HOSTS = [
     "aliengamer.com",
     "www.aliengamer.com",
     "127.0.0.1",
     "localhost",
+    "ninerogues-testing.fly.dev",
     ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -102,10 +105,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
+# DATABASES = {
+#     "default": env.db("DATABASE_URL", default=" "),
+# }
+# DATABASES["default"]["ATOMIC_REQUESTS"] = True
+
 DATABASES = {
-    "default": env.db("DATABASE_URL", default=" "),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
-DATABASES["default"]["ATOMIC_REQUESTS"] = True
+
+
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',

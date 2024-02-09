@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for ninerogues-ecommerce-master on 2024-02-07T07:49:44-05:00
+# fly.toml app configuration file generated for ninerogues-testing on 2024-02-09T07:54:50-08:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'ninerogues-ecommerce-master'
+app = 'ninerogues-testing'
 primary_region = 'scl'
 console_command = '/code/manage.py shell'
 
